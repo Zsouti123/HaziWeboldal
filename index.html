@@ -19,6 +19,7 @@
             background: linear-gradient(135deg, #2c2c2c, #505050);
             font-family: 'Arial', sans-serif;
             color: #fff;
+            flex-direction: column; /* Alapértelmezett irány függőlegesen */
         }
 
         .container {
@@ -31,6 +32,8 @@
             align-items: center;
             gap: 20px;
             max-width: 600px;
+            flex-direction: column; /* A tartalom most függőlegesen legyen elrendezve */
+            text-align: center; /* A szöveg középre igazítása */
         }
 
         img {
@@ -38,10 +41,6 @@
             height: auto;
             border-radius: 10px;
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .text {
-            text-align: left;
         }
 
         h1 {
@@ -57,6 +56,29 @@
             font-weight: lighter;
             color: #d1d1d1;
             opacity: 0.9;
+        }
+
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #218838;
+        }
+
+        .fact {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #d1d1d1;
         }
 
         @keyframes fadeIn {
@@ -78,6 +100,28 @@
             <h1>12.B második weboldala</h1>
             <h2>A Google Sites volt az első</h2>
         </div>
+
+        <button class="button" onclick="showRandomFact()">Kattints ide, hogy láss egy random tényt!</button>
+
+        <div class="fact" id="factDisplay"></div>
     </div>
+
+    <script>
+        const facts = [
+            "A Nap tömege a Föld tömegének 333 000-szerese.",
+            "A méhek naponta akár 50 000 virágot is meglátogatnak.",
+            "A felnőtt emberi test 206 csontból áll.",
+            "A világ legnagyobb sivataga az Antarktisz.",
+            "A kék bálna a legnagyobb állat, amely valaha élt a Földön.",
+            "A pingvinek nem tudnak repülni, de nagyszerű úszók.",
+            "A híres Eiffel-torony 1889-ben épült a párizsi világkiállításra.",
+            "A cápák 400 millió éve léteznek, tehát még a dinoszauruszok előtt."
+        ];
+
+        function showRandomFact() {
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById("factDisplay").textContent = randomFact;
+        }
+    </script>
 </body>
 </html>
